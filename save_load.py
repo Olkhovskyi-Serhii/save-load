@@ -55,3 +55,31 @@ def save_json(data, file_name, relative_path=None):
 
     with open(file_path, "w", encoding="utf-8") as file:
         json.dump(data, file, ensure_ascii=False, indent=4)
+
+def load_json(file_name, relative_path=None):
+    """
+    Loads JSON data from a custom path relative to the project root.
+
+    Args:
+        file_name (str): Name of the JSON file.
+        relative_path (str | None): Custom path relative to project root.
+                                    Example: "data/files_json/db_json"
+                                    If None, loads directly from project root.
+
+    Returns:
+        Any: Loaded JSON data (list, dict, etc.)
+
+    Raises:
+        FileNotFoundError: If the file does not exist.
+        json.JSONDecodeError: If the file contains invalid JSON.
+    """
+
+    base_path = find_project_root()
+
+    if relative_path:
+        base_path = base_path / relative_path
+
+    file_path = base_path / file_name
+
+    with open(file_path, "r", encoding="utf-8") as file:
+        return json.load(file)
