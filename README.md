@@ -37,15 +37,14 @@ The module uses `pathlib` and automatically creates required directories.
 
 ## 📂 Example Project Structure
 
+```
 project_root/
-├── main.py
-├── save_load.py
-└── data/
-    └── files_json/
-        └── example.json
-
-
-
+├── 📄 main.py
+├── 📄 save_load.py
+└── 📁 data/
+    └── 📁 files_json/
+        └── 📄 example.json
+```
 ## 📦 Installation
 
 Simply include `save_load.py` in your project and import the functions:
